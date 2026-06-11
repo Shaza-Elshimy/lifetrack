@@ -23,11 +23,20 @@
 # handler.handle(event)
 
 #test event router with console handler
-require_relative 'event_router'
-require_relative 'console_handler'
+# require_relative 'event_router'
+# require_relative 'console_handler'
+# require_relative 'life_event'
+# router = EventRouter.new
+# console_handler = ConsoleHandler.new
+# router.register(console_handler)
+# event = LifeEvent.new("study","Rudy SOLID" ,"45")
+# router.dispatch(event)
+
+
+# test file handler
+require_relative 'file_handler'
 require_relative 'life_event'
-router = EventRouter.new
-console_handler = ConsoleHandler.new
-router.register(console_handler)
+
 event = LifeEvent.new("study","Rudy SOLID" ,"45")
-router.dispatch(event)
+handler = FileHandler.new
+handler.handle(event)

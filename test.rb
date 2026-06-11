@@ -60,15 +60,37 @@
 # router.dispatch(event)
 
 # test html handler
+# require_relative 'life_event'
+# require_relative 'html_handler'
+
+# event = LifeEvent.new(
+#   "exercise",
+#   "Gym Workout",
+#   60
+# )
+
+# handler = HtmlHandler.new
+
+# handler.handle(event)
+
+# test console handler +file handler + html handler
+
 require_relative 'life_event'
+require_relative 'event_router'
+require_relative 'console_handler'
+require_relative 'file_handler'
 require_relative 'html_handler'
 
+router = EventRouter.new
+
+router.register(ConsoleHandler.new)
+router.register(FileHandler.new)
+router.register(HtmlHandler.new)
+
 event = LifeEvent.new(
-  "exercise",
-  "Gym Workout",
-  60
+  "study",
+  "Ruby Observer Pattern",
+  45
 )
 
-handler = HtmlHandler.new
-
-handler.handle(event)
+router.dispatch(event)

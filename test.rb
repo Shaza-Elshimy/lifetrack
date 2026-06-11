@@ -34,9 +34,27 @@
 
 
 # test file handler
-require_relative 'file_handler'
-require_relative 'life_event'
+# require_relative 'file_handler'
+# require_relative 'life_event'
 
-event = LifeEvent.new("study","Rudy SOLID" ,"45")
-handler = FileHandler.new
-handler.handle(event)
+# event = LifeEvent.new("study","Rudy SOLID" ,"45")
+# handler = FileHandler.new
+# handler.handle(event)
+
+#test router with console +file
+require_relative 'life_event'
+require_relative 'event_router'
+require_relative 'console_handler'
+require_relative 'file_handler'
+
+router = EventRouter.new
+
+router.register(ConsoleHandler.new)
+router.register(FileHandler.new)
+
+event = LifeEvent.new(
+  "study",
+  "Ruby Observer Pattern",
+  45
+)
+router.dispatch(event)

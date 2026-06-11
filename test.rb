@@ -5,6 +5,12 @@
 # puts event.duration
 # puts event.timestamp
 
-require_relative 'handler'
-handler = Handler.new
-handler.handle(nil)
+#test handler
+# require_relative 'handler'
+# handler = Handler.new
+# handler.handle(nil)
+
+#test event router
+require_relative 'event_router'
+router = EventRouter.new
+p router
